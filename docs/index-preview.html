@@ -1,48 +1,171 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.5.57">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>How Temperature Affects Productivity in the Great Lakes</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
+    <title>How Temperature Affects Productivity in the Great Lakes</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      /* CSS for citations */
+      div.csl-bib-body { }
+      div.csl-entry {
+        clear: both;
+        margin-bottom: 0em;
+      }
+      .hanging-indent div.csl-entry {
+        margin-left:2em;
+        text-indent:-2em;
+      }
+      div.csl-left-margin {
+        min-width:2em;
+        float:left;
+      }
+      div.csl-right-inline {
+        margin-left:2em;
+        padding-left:1em;
+      }
+      div.csl-indent {
+        margin-left: 2em;
+      }    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="site_libs/manuscript-notebook/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -56,15 +179,13 @@ div.csl-indent {
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script async="" src="https://hypothes.is/embed.js"></script>
+     <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
-</script>
-
-
-<meta name="citation_title" content="How Temperature Affects Productivity in the Great Lakes">
+</script>  
+      <meta name="citation_title" content="How Temperature Affects Productivity in the Great Lakes">
 <meta name="citation_author" content="Claire Mittel">
 <meta name="citation_author" content="Bailey Stender">
 <meta name="citation_language" content="en">
@@ -77,9 +198,16 @@ div.csl-indent {
 <meta name="citation_reference" content="citation_title=Anthropogenic climate change has altered primary productivity in lake superior;,citation_author=MD O’Beirne;,citation_author=JP Werne;,citation_author=RE Hecky;,citation_author=TC Johnson;,citation_author=Sergei Katsev;,citation_author=Euan D Reavie;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_issue=1;,citation_volume=8;,citation_journal_title=Nature communications;,citation_publisher=Nature Publishing Group UK London;">
 </head>
 
-<body>
+  <body class="quarto-notebook">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
 
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+            <a href="./index.qmd" class="btn btn-primary quarto-download-embed" download="index.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">How Temperature Affects Productivity in the Great Lakes</h1>
@@ -118,7 +246,7 @@ div.csl-indent {
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div><div class="quarto-title-meta-contents"><p><a href="index-meca.zip" data-meca-link="true"><i class="bi bi-archive"></i>MECA Bundle</a></p></div></div></div>
+      </div>
     </div>
 
 
@@ -144,24 +272,60 @@ div.csl-indent {
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="index-preview.html"><i class="bi bi-journal-code"></i>Article Notebook</a></li></ul></div></nav>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-
-
-  
-
-
-<section id="introductionbackgroundmethods" class="level1">
+       <section id="introductionbackgroundmethods" class="level1">
 <h1>Introduction/Background/Methods</h1>
 <p>The topic we have chosen for our project is to see how temperature affects productivity in the Great Lakes. We are going to show the relationship by seeing how the temperature that is recorded in the lakes, Lake Erie and Lake Huron, increase or decrease the amount of Chlorophyll A. Chlorophyll A is able to show that there is high productivity in environments because it is an indicator of how much primary productivity has occurred (<span class="citation" data-cites="baker2004chlorophyll">Baker &amp; Oxborough (<a href="#ref-baker2004chlorophyll" role="doc-biblioref">2004</a>)</span>). Primary productivity is the amount of photosynthesis that is occurring within an ecosystem. A high productivity would be indicated by a high amount of Chlorophyll A because it is what makes plants green and when they are most green, they are able to absorb the most light (<span class="citation" data-cites="bjorn2009viewpoint">Björn et al. (<a href="#ref-bjorn2009viewpoint" role="doc-biblioref">2009</a>)</span>). This is an important topic to be discussing because it has been shown that anthropogenic climate change has altered how much primary productivity there is in lakes. There was a study, <span class="citation" data-cites="o2017anthropogenic">O’Beirne et al. (<a href="#ref-o2017anthropogenic" role="doc-biblioref">2017</a>)</span>, that showed that primary productivity has decreased very slowly in the last 9,000 years. Primary productivity is important to lake environments because the photosynthesis that occurs produces nutrients for consumers to thrive off of. When primary productivity goes down, the overall health of the lake goes down. The motivation behind seeing if there is a correlation between the two is that the lakes are two very different ecosystems. Another reason behind choosing this data is that Lake Erie is the most polluted of the Great Lakes. This could have an effect on how much productivity there is in the lake because there could be less light able to penetrate the water, and therefore a lower temperature for a possible lower productivity rate.</p>
 <p>The datasets that we will be using are from the NOAA Great Lakes Environmental Research Laboratory, <span class="citation" data-cites="lakeerie">US Department of Commerce (<a href="#ref-lakeerie" role="doc-biblioref">n.d.-b</a>)</span> and <span class="citation" data-cites="lakehuron">US Department of Commerce (<a href="#ref-lakehuron" role="doc-biblioref">n.d.-a</a>)</span>. The datasets are from the same laboratory that is studying the Great Lakes and taking measurements to keep track of the water quality in each of the lakes. In Lake Erie and Lake Huron, they are keeping track of Microcystis, which is a “toxin producing algae” (<span class="citation" data-cites="lakeerie">US Department of Commerce (<a href="#ref-lakeerie" role="doc-biblioref">n.d.-b</a>)</span>). They are keeping track of the amount of Microcytis to see if there is a correlation between the amount of it in the water and the toxicity level in the lake. They collect other weekly environmental parameters including “nitrate (N), chlorophyll, phycocyanin, dissolved oxygen (DO), turbidity, and specific conductivity” (<span class="citation" data-cites="lakeerie">US Department of Commerce (<a href="#ref-lakeerie" role="doc-biblioref">n.d.-b</a>)</span>). With this data they are collecting for tracking Microcystis, they are looking to figure out what causes the algal blooms so that they are able to prepare for the harm they will cause. One method that we will be using in this project to determine the relationship between temperature and Chlorophyll A levels is a Chi squared test. This test will help us determine if the relationship between temperature and Chlorophyll A levels are dependent on each other or not. This will help us find a correlation because the expected results would be that there is no correlation and if it is different from the expected, it proves that there is a correlation. Another method that we will be using in this project to determine the relationship between temperature and Chlorophyll A levels is a correlation test. This will help to see if there is a linear correlation between temperature and Chlorophyll A levels by seeing if they have a strong relationship. This will help see what the relationship is because if there is a strong correlation, it proves that the relationship is either positive or negative. It is most likely a positive relationship because warmer temperatures tend to increase the amount of photosynthesis that occurs (@dunstan2018global). That means that an increase of photosynthesis means that there is an increase in Chlorophyll A. Therefore, there would be a positive relationship between temperature and Chlorophyll A levels.</p>
 </section>
 <section id="exploring-your-data" class="level1">
 <h1>Exploring your Data</h1>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ purrr     1.0.4
+✔ forcats   1.0.0     ✔ readr     2.1.5
+✔ ggplot2   3.5.1     ✔ stringr   1.5.1
+✔ lubridate 1.9.4     ✔ tibble    3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>lakeerie <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://www.glerl.noaa.gov/res/HABs_and_Hypoxia/wle-weekly-current/2024_WLE_Weekly_Datashare_CSV.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 260 Columns: 25
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (17): Date, Site, Sample_Depth_category, Sky, Secchi_Depth_m, Temp_C, S...
+dbl   (6): Station_Depth_m, Sample_Depth_m, Lat_deg, Long_deg, Wind_speed_ms...
+time  (2): Arrival_Time, Departure_Time
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lakehuron <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://www.glerl.noaa.gov/res/HABs_and_Hypoxia/sb-weekly-current/SB_Weekly_Datashare_CSV.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 87 Columns: 24
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (11): Date, Site, Sample_Depth_category, Sky, Secchi_Depth_m, DO_mgL-1,...
+dbl   (9): Station_Depth_m, Sample_Depth_m, Lat_deg, Long_deg, Temp_C, SpCon...
+lgl   (2): Wind_speed_knots, Wave_Ht_ft
+time  (2): Arrival_Time, Departure_Time
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div></div>
 <p>The data for this project was collected by NOAA’s Great Lakes Environmental Research Laboratory. This data was collected in the year 2024 between 4/24 and 10/24 for Dataset 1 and between 5/22 and 10/18 for Dataset 2. Dataset 1 contains 249 rows of data while Dataset 2 contains 82 rows of data. To clean the data, rows that have empty values will be removed. We will also only be using the columns “Temp C” and “Extracted_CHLa_ugL-1” so all other columns will be removed.&nbsp;</p>
 <p>Maps display where data for the two sites were collected. The data for Dataset 1 was collected in the western portion of Lake Erie at various monitoring sites (Figure 1). The white circles on the map represent the locations where samples were collected. The data for Dataset 2 was collected in Saginaw Bay, which is part of lower Lake Huron (Figure 2).&nbsp;</p>
 <p>Some visualizations of the data were created comparing temperature and chlorophyll concentrations using scatter plot graphs (Figure 3, 4). Before applying statistical methods, it visually looks like there is a positive correlation between temperature and chlorophyll a concentrations based on their respective trendlines.</p>
@@ -181,31 +345,107 @@ div.csl-indent {
 <p>A Chi squared test will be administered to test if there is a relationship between temperature and Chlorophyll A levels for each dataset. We will also be using a correlation test to find if there is a linear correlation between temperature and Chlorophyll A for each dataset. The two datasets themselves will be tested to determine if there are significant differences between measures of Chlorophyll a between the lakes. If data are normal and variances equal we will use a two-sample t-test (independent t-test). If data are not normal we will use a non-parametric test, like the Wilcoxon Rank-Sum Test. There will also be a test to find if there is a significant difference in the way temperature and Chlorophyll a interact in the different lakes. For this test we will use a linear model with an interaction between lake and temperature.</p>
 <p>Some supplemental data we may need is information on why the 2 lakes may differ in Chlorophyll a levels or their relationship with Chlorophyll a and temperature. We might need data on pollution levels to each lake. The data seems like it will be easy to work with but Dataset 1 and Dataset 2 have a very different amount of rows. To make certain tests work we may need to condense the data from Dataset 1. It also might be helpful to only include data from 5/22-10/18 because this is the time range of data collected in Dataset 1. Some potential challenges we see in the methods is understanding when to use certain statistical methods/making sure they are the best statistical method for the data and research question.</p>
 <p>These selected methods help us get to our final goal because in various ways we will test the correlation between temperature and CHLa (productivity). This information will be valuable because as temperatures increase, productivity may increase and cause problems for lake ecosystems. We will also compare Lake Erie to Lake Huron because pollution to lake Erie may affect productivity levels or the way temperature impacts productivity.</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lakeerie2 <span class="ot">&lt;-</span> lakeerie <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">surface_temp =</span> Temp_C,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chlorophyll_a =</span> <span class="st">`</span><span class="at">Extracted_CHLa_ugL-1</span><span class="st">`</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>lakehuron2 <span class="ot">&lt;-</span> lakehuron <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">surface_temp =</span> Temp_C,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">chlorophyll_a =</span> <span class="st">`</span><span class="at">Extracted_CHLa_ugL-1</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
 <section id="testing" class="level2">
 <h2 class="anchored" data-anchor-id="testing">Testing</h2>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lakeerie2, <span class="fu">aes</span>(<span class="at">x =</span> surface_temp, <span class="at">y =</span> chlorophyll_a)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Temperature vs Chlorophyll a in Lake Eerie"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Surface Temperature (°C)"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Chlorophyll a (µg/L)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 <div class="cell-output-display">
-<div>
+<div class="">
 <figure class="figure">
-<p><a href="index_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p class=""><a href="index_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-1" href="index-preview.html">Source: Article Notebook</a></div>
-<div class="cell">
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lakehuron2, <span class="fu">aes</span>(<span class="at">x =</span> surface_temp, <span class="at">y =</span> chlorophyll_a)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Temperature vs Chlorophyll a in Lake Huron"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Surface Temperature (°C)"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Chlorophyll a (µg/L)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in qt((1 - level)/2, df): NaNs produced</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+-Inf</code></pre>
+</div>
 <div class="cell-output-display">
-<div>
+<div class="">
 <figure class="figure">
-<p><a href="index_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p class=""><a href="index_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>lakeerie_clean <span class="ot">&lt;-</span> lakeerie2 <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(surface_temp, chlorophyll_a) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">surface_temp =</span> <span class="fu">as.numeric</span>(surface_temp),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">chlorophyll_a =</span> <span class="fu">as.numeric</span>(chlorophyll_a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `surface_temp = as.numeric(surface_temp)`.
+Caused by warning:
+! NAs introduced by coercion</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lakehuron_clean <span class="ot">&lt;-</span> lakehuron2 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(surface_temp, chlorophyll_a) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">surface_temp =</span> <span class="fu">as.numeric</span>(surface_temp),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">chlorophyll_a =</span> <span class="fu">as.numeric</span>(chlorophyll_a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
 <section id="lake-eerie-tests" class="level3">
 <h3 class="anchored" data-anchor-id="lake-eerie-tests">Lake Eerie Tests</h3>
 <section id="chi-squared-test" class="level4">
 <h4 class="anchored" data-anchor-id="chi-squared-test">Chi Squared Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lakeerie_binned <span class="ot">&lt;-</span> lakeerie_clean <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">temp_cat =</span> <span class="fu">ntile</span>(surface_temp, <span class="dv">3</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chl_cat =</span> <span class="fu">ntile</span>(chlorophyll_a, <span class="dv">3</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">temp_cat =</span> <span class="fu">factor</span>(temp_cat, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>)),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">chl_cat =</span> <span class="fu">factor</span>(chl_cat, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>table_data <span class="ot">&lt;-</span> <span class="fu">table</span>(lakeerie_binned<span class="sc">$</span>temp_cat, lakeerie_binned<span class="sc">$</span>chl_cat)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -213,11 +453,12 @@ div.csl-indent {
 data:  table_data
 X-squared = 37.374, df = 4, p-value = 1.509e-07</code></pre>
 </div>
-</div>
+</div></div>
 </section>
 <section id="pearsons-correlation-test" class="level4">
 <h4 class="anchored" data-anchor-id="pearsons-correlation-test">Pearson’s Correlation Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lakeerie_clean<span class="sc">$</span>surface_temp, lakeerie_clean<span class="sc">$</span>chlorophyll_a, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -231,11 +472,15 @@ sample estimates:
     cor 
 0.38553 </code></pre>
 </div>
-</div>
+</div></div>
 </section>
 <section id="t-test" class="level4">
 <h4 class="anchored" data-anchor-id="t-test">T-Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>chl_high <span class="ot">&lt;-</span> lakeerie_binned <span class="sc">%&gt;%</span> <span class="fu">filter</span>(temp_cat <span class="sc">==</span> <span class="st">"High"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(chlorophyll_a)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>chl_low  <span class="ot">&lt;-</span> lakeerie_binned <span class="sc">%&gt;%</span> <span class="fu">filter</span>(temp_cat <span class="sc">==</span> <span class="st">"Low"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(chlorophyll_a)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(chl_high, chl_low, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -249,11 +494,12 @@ sample estimates:
 mean of x mean of y 
  23.58518  13.09806 </code></pre>
 </div>
-</div>
+</div></div>
 </section>
 <section id="wilcox-test" class="level4">
 <h4 class="anchored" data-anchor-id="wilcox-test">Wilcox Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(chl_high, chl_low)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon rank sum test with continuity correction
@@ -262,14 +508,27 @@ data:  chl_high and chl_low
 W = 5206.5, p-value = 1.278e-08
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
-</div>
+</div></div>
 </section>
 </section>
 <section id="lake-huron-testing" class="level3">
 <h3 class="anchored" data-anchor-id="lake-huron-testing">Lake Huron Testing</h3>
 <section id="chi-squared-test-1" class="level4">
 <h4 class="anchored" data-anchor-id="chi-squared-test-1">Chi Squared Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>lakehuron_binned <span class="ot">&lt;-</span> lakehuron_clean <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">temp_cat =</span> <span class="fu">ntile</span>(surface_temp, <span class="dv">3</span>),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chl_cat =</span> <span class="fu">ntile</span>(chlorophyll_a, <span class="dv">3</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">temp_cat =</span> <span class="fu">factor</span>(temp_cat, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>)),</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">chl_cat =</span> <span class="fu">factor</span>(chl_cat, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>table_data <span class="ot">&lt;-</span> <span class="fu">table</span>(lakehuron_binned<span class="sc">$</span>temp_cat, lakehuron_binned<span class="sc">$</span>chl_cat)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -277,11 +536,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 data:  table_data
 X-squared = 10.09, df = 4, p-value = 0.03894</code></pre>
 </div>
-</div>
+</div></div>
 </section>
 <section id="pearsons-correlation-test-1" class="level4">
 <h4 class="anchored" data-anchor-id="pearsons-correlation-test-1">Pearson’s Correlation Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lakehuron_binned<span class="sc">$</span>surface_temp, lakehuron_binned<span class="sc">$</span>chlorophyll_a, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -295,11 +555,15 @@ sample estimates:
       cor 
 0.1803297 </code></pre>
 </div>
-</div>
+</div></div>
 </section>
 <section id="t-test-1" class="level4">
 <h4 class="anchored" data-anchor-id="t-test-1">T-Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>chl_high2 <span class="ot">&lt;-</span> lakehuron_binned <span class="sc">%&gt;%</span> <span class="fu">filter</span>(temp_cat <span class="sc">==</span> <span class="st">"High"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(chlorophyll_a)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>chl_low2  <span class="ot">&lt;-</span> lakehuron_binned <span class="sc">%&gt;%</span> <span class="fu">filter</span>(temp_cat <span class="sc">==</span> <span class="st">"Low"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(chlorophyll_a)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(chl_high2, chl_low2, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -313,11 +577,16 @@ sample estimates:
 mean of x mean of y 
  16.12000  10.48036 </code></pre>
 </div>
-</div>
+</div></div>
 </section>
 <section id="wilcox-test-1" class="level4">
 <h4 class="anchored" data-anchor-id="wilcox-test-1">Wilcox Test</h4>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(chl_high2, chl_low2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(chl_high2, chl_low2): cannot compute exact
+p-value with ties</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon rank sum test with continuity correction
@@ -326,7 +595,7 @@ data:  chl_high2 and chl_low2
 W = 520, p-value = 0.0172
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
-</div>
+</div></div>
 </section>
 </section>
 </section>
@@ -351,10 +620,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <br>
 <br>
 </p>
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-baker2004chlorophyll" class="csl-entry" role="listitem">
 Baker, N. R., &amp; Oxborough, K. (2004). Chlorophyll fluorescence as a probe of photosynthetic productivity. In <em>Chlorophyll a fluorescence: A signature of photosynthesis</em> (pp. 65–82). Springer.
 </div>
@@ -370,9 +636,10 @@ US Department of Commerce, N. (n.d.-a). NOAA-glerl saginaw bay sampling data. In
 <div id="ref-lakeerie" class="csl-entry" role="listitem">
 US Department of Commerce, N. (n.d.-b). NOAA-glerl western lake erie sampling data. In <em>Home: NOAA Great Lakes Environmental Research Laboratory - Ann Arbor, MI, USA</em>. <a href="https://www.glerl.noaa.gov/res/HABs_and_Hypoxia/wle-weekly-current/">https://www.glerl.noaa.gov/res/HABs_and_Hypoxia/wle-weekly-current/</a>
 </div>
-</div></section></div></main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+</div>
+</section>
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -791,9 +1058,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-</div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
@@ -824,9 +1089,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   };
   
 })();
-          </script>
-
-
-
-
+          </script> 
+  
 </body></html>
