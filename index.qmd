@@ -13,13 +13,17 @@ bibliography: references.bib
 csl: apa.csl
 ---
 
-# Introduction/Background/Methods
+# Abstract
 
-The topic we have chosen for our project is to see how temperature affects productivity in the Great Lakes. We are going to show the relationship by seeing how the temperature that is recorded in the lakes, Lake Erie and Lake Huron, increase or decrease the amount of Chlorophyll A. Chlorophyll A is able to show that there is high productivity in environments because it is an indicator of how much primary productivity has occurred (@baker2004chlorophyll). Primary productivity is the amount of photosynthesis that is occurring within an ecosystem. A high productivity would be indicated by a high amount of Chlorophyll A because it is what makes plants green and when they are most green, they are able to absorb the most light (@bjorn2009viewpoint). This is an important topic to be discussing because it has been shown that anthropogenic climate change has altered how much primary productivity there is in lakes. There was a study, @o2017anthropogenic, that showed that primary productivity has decreased very slowly in the last 9,000 years. Primary productivity is important to lake environments because the photosynthesis that occurs produces nutrients for consumers to thrive off of. When primary productivity goes down, the overall health of the lake goes down. The motivation behind seeing if there is a correlation between the two is that the lakes are two very different ecosystems. Another reason behind choosing this data is that Lake Erie is the most polluted of the Great Lakes. This could have an effect on how much productivity there is in the lake because there could be less light able to penetrate the water, and therefore a lower temperature for a possible lower productivity rate.
+The Great Lakes have experienced a dramatic increase in algal blooms in recent decades due to increased nutrient runoff from over-fertilizing crops and increased inputs from industrial and municipal waste (@singh). Algal blooms can be detrimental to lake ecosystem health and result in large fish kills (@singh). Considering temperatures in this region are projected to rise due to changing climatic conditions, it is important to study the relationship between temperature and productivity levels (@mishra2010review). Since higher productivity levels in lakes usually indicate a higher level of algal blooms, this is an important measure to project because rising temperatures could put an even higher stress on lake ecosystems (@mishra2010review). Using data collected in Lake Erie and Lake Huron, measurements of productivity were identified using chlorophyll A levels. Our results indicate that there is a high to medium positive correlation between chlorophyll A levels (productivity) and temperature. Lake Erie showed a stronger relationship between chlorophyll A levels and temperature. More research is necessary to figure out why the Lake Erie data has a higher correlation between productivity and temperature compared to Lake Huron. These results highlight the need to continue studying these relationships as temperature increases due to climate change. This could inform management decisions because higher restrictions may need to be placed on nutrient inputs into the lakes.
 
-The datasets that we will be using are from the NOAA Great Lakes Environmental Research Laboratory, @lakeerie and @lakehuron. The datasets are from the same laboratory that is studying the Great Lakes and taking measurements to keep track of the water quality in each of the lakes. In Lake Erie and Lake Huron, they are keeping track of Microcystis, which is a “toxin producing algae” (@lakeerie). They are keeping track of the amount of Microcytis to see if there is a correlation between the amount of it in the water and the toxicity level in the lake. They collect other weekly environmental parameters including “nitrate (N), chlorophyll, phycocyanin, dissolved oxygen (DO), turbidity, and specific conductivity” (@lakeerie). With this data they are collecting for tracking Microcystis, they are looking to figure out what causes the algal blooms so that they are able to prepare for the harm they will cause. One method that we will be using in this project to determine the relationship between temperature and Chlorophyll A levels is a Chi squared test. This test will help us determine if the relationship between temperature and Chlorophyll A levels are dependent on each other or not. This will help us find a correlation because the expected results would be that there is no correlation and if it is different from the expected, it proves that there is a correlation. Another method that we will be using in this project to determine the relationship between temperature and Chlorophyll A levels is a correlation test. This will help to see if there is a linear correlation between temperature and Chlorophyll A levels by seeing if they have a strong relationship. This will help see what the relationship is because if there is a strong correlation, it proves that the relationship is either positive or negative. It is most likely a positive relationship because warmer temperatures tend to increase the amount of photosynthesis that occurs (\@dunstan2018global). That means that an increase of photosynthesis means that there is an increase in Chlorophyll A. Therefore, there would be a positive relationship between temperature and Chlorophyll A levels.
+# Introduction
 
-# Exploring your Data
+The topic we have chosen for our project is to see how temperature affects productivity in the Great Lakes. We are going to show the relationship by seeing how the temperature that is recorded in the lakes, Lake Erie and Lake Huron, increase or decrease the amount of Chlorophyll A. Chlorophyll A is able to show that there is high productivity in environments because it is an indicator of how much primary productivity has occurred (@baker2004chlorophyll). Primary productivity is the amount of photosynthesis that is occurring within an ecosystem. A high productivity would be indicated by a high amount of Chlorophyll A because it is what makes plants green and when they are most green, they are able to absorb the most light (@bjorn2009viewpoint). This is an important topic to be discussing because it has been shown that anthropogenic climate change has altered how much primary productivity there is in lakes. There was a study, @o2017anthropogenic, that showed that primary productivity has decreased very slowly in the last 9,000 years. Primary productivity is important to lake environments because the photosynthesis that occurs produces nutrients for consumers to thrive off of. When primary productivity goes down, the overall health of the lake goes down. Another study was done on the impact that environmental factors have on a lake in China, @shi2023impacts . This study was done over a period of 10 years and it showed that there is a strong correlation between solar radiation and chlorophyll A concentration in the summer and winter. This is important because it showed that climate change is having an impact on primary productivity of lakes through this study. The motivation behind seeing if there is a correlation between the two is that the lakes are two very different ecosystems. Another reason behind choosing this data is that Lake Erie is the most polluted of the Great Lakes. This could have an effect on how much productivity there is in the lake because there could be less light able to penetrate the water, and therefore a lower temperature for a possible lower productivity rate.
+
+The datasets that we will be using are from the NOAA Great Lakes Environmental Research Laboratory, @lakeerie and @lakehuron. The datasets are from the same laboratory that is studying the Great Lakes and taking measurements to keep track of the water quality in each of the lakes. In Lake Erie and Lake Huron, they are keeping track of Microcystis, which is a “toxin producing algae” (@lakeerie). They are keeping track of the amount of Microcytis to see if there is a correlation between the amount of it in the water and the toxicity level in the lake. They collect other weekly environmental parameters including “nitrate (N), chlorophyll, phycocyanin, dissolved oxygen (DO), turbidity, and specific conductivity” (@lakeerie). With this data they are collecting for tracking Microcystis, they are looking to figure out what causes the algal blooms so that they are able to prepare for the harm they will cause. There was another study done about this harmful algae in Lake Erie in 2021, @qian2021chlorophyll . They found that there is a positive correlation between chlorophyll A concentration and Microcystis in Lake Erie. This work was likely used as a reason for these laboratories to study the concentration of Microcystis. Our hypothesis is that higher temperatures will result in an increase in the amount of chlorophyll A and therefore level of primary productivity in the lakes. We hypothesize this because warmer temperatures tend to increase the amount of photosynthesis that occurs (@dunstan2018global). We also hypothesize that an increase in temperature will have less of an impact on primary productivity in lake Erie because of its high pollution levels.
+
+# Methods
 
 ```{r}
 library(tidyr)
@@ -29,11 +33,11 @@ lakeerie <- read_csv('https://www.glerl.noaa.gov/res/HABs_and_Hypoxia/wle-weekly
 lakehuron <- read_csv('https://www.glerl.noaa.gov/res/HABs_and_Hypoxia/sb-weekly-current/SB_Weekly_Datashare_CSV.csv')
 ```
 
-The data for this project was collected by NOAA’s Great Lakes Environmental Research Laboratory. This data was collected in the year 2024 between 4/24 and 10/24 for Dataset 1 and between 5/22 and 10/18 for Dataset 2. Dataset 1 contains 249 rows of data while Dataset 2 contains 82 rows of data. To clean the data, rows that have empty values will be removed. We will also only be using the columns “Temp C” and “Extracted_CHLa_ugL-1” so all other columns will be removed. 
+The data for this project was collected by NOAA’s Great Lakes Environmental Research Laboratory. This data was collected in the year 2024 between 4/24 and 10/24 for Dataset 1 (@lakeerie) and between 5/22 and 10/18 for Dataset 2 (@lakehuron). Dataset 1 contains 249 rows of data while Dataset 2 contains 82 rows of data. To clean the data, rows that have empty values will be removed. We will also only be using the columns “Temp C” and “Extracted_CHLa_ugL-1” so all other columns will be removed. 
 
 Maps display where data for the two sites were collected. The data for Dataset 1 was collected in the western portion of Lake Erie at various monitoring sites (Figure 1). The white circles on the map represent the locations where samples were collected. The data for Dataset 2 was collected in Saginaw Bay, which is part of lower Lake Huron (Figure 2). 
 
-Some visualizations of the data were created comparing temperature and chlorophyll concentrations using scatter plot graphs (Figure 3, 4). Before applying statistical methods, it visually looks like there is a positive correlation between temperature and chlorophyll a concentrations based on their respective trendlines.
+Some visualizations of the data were created comparing temperature and chlorophyll concentrations using scatter plot graphs (Figure 3, 4). Before applying statistical methods, it visually looks like there is a positive correlation between temperature and chlorophyll a concentrations based on their respective trend lines.
 
 ![](img/lakeeriemap.png)
 
@@ -53,13 +57,13 @@ Some visualizations of the data were created comparing temperature and chlorophy
 \
 **Figure 4.** Temperature and CHLa correlation at Lake Erie Study site (4/24-10/24)
 
-# Methods
+One method that was used in this project to determine the relationship between temperature and Chlorophyll A levels was a Chi squared test. This test helped determine if the relationship between temperature and Chlorophyll A levels were dependent on each other or not. This helped find a correlation because the expected results would be that there is no correlation and if it is different from the expected, it proves that there is a correlation. Another method that was used in this project to determine the relationship between temperature and Chlorophyll A levels is a correlation test. This helped determine if there is a linear correlation between temperature and Chlorophyll A levels by seeing if they have a strong relationship. This helped to determine what the relationship was because if there is a strong correlation, it proves that the relationship is either positive or negative. It is most likely a positive relationship because warmer temperatures tend to increase the amount of photosynthesis that occurs (@dunstan2018global). That means that an increase of photosynthesis means that there is an increase in Chlorophyll A. Therefore, there would be a positive relationship between temperature and Chlorophyll A levels.
 
-A Chi squared test will be administered to test if there is a relationship between temperature and Chlorophyll A levels for each dataset. We will also be using a correlation test to find if there is a linear correlation between temperature and Chlorophyll A for each dataset. The two datasets themselves will be tested to determine if there are significant differences between measures of Chlorophyll a between the lakes. If data are normal and variances equal we will use a two-sample t-test (independent t-test). If data are not normal we will use a non-parametric test, like the Wilcoxon Rank-Sum Test. There will also be a test to find if there is a significant difference in the way temperature and Chlorophyll a interact in the different lakes. For this test we will use a linear model with an interaction between lake and temperature.
+A Chi squared test was administered to test if there was a relationship between temperature and Chlorophyll A levels for each dataset. A correlation test was also used to find if there was a linear correlation between temperature and Chlorophyll A for each dataset. The two datasets themselves were tested to determine if there was a significant difference between measures of Chlorophyll A between the lakes. If data were normal and variances equal a two-sample t-test (independent t-test) was used. If data were not normal a non-parametric test was used, like the Wilcoxon Rank-Sum Test. There was also a test to find if there is a significant difference in the way temperature and Chlorophyll a interact in the different lakes. For this test a linear model was used with an interaction between lake and temperature.
 
-Some supplemental data we may need is information on why the 2 lakes may differ in Chlorophyll a levels or their relationship with Chlorophyll a and temperature. We might need data on pollution levels to each lake. The data seems like it will be easy to work with but Dataset 1 and Dataset 2 have a very different amount of rows. To make certain tests work we may need to condense the data from Dataset 1. It also might be helpful to only include data from 5/22-10/18 because this is the time range of data collected in Dataset 1. Some potential challenges we see in the methods is understanding when to use certain statistical methods/making sure they are the best statistical method for the data and research question.
+Some supplemental data needed for this analysis was information on why the 2 lakes may differ in Chlorophyll a levels or their relationship with Chlorophyll a and temperature. Data was needed on pollution levels to each lake. The data seemed like it would be easy to work with but Dataset 1 and Dataset 2 had a very different amount of rows. To make certain tests work we data from Dataset 1 needed to be condensed. It also was helpful to only include data from 5/22-10/18 because this is the time range of data collected in Dataset 1. Some potential challenges seem in the methods is understanding when to use certain statistical methods/making sure they are the best statistical method for the data and research question.
 
-These selected methods help us get to our final goal because in various ways we will test the correlation between temperature and CHLa (productivity). This information will be valuable because as temperatures increase, productivity may increase and cause problems for lake ecosystems. We will also compare Lake Erie to Lake Huron because pollution to lake Erie may affect productivity levels or the way temperature impacts productivity.
+These selected methods helped get to our final goal because in various ways we tested the correlation between temperature and CHLa (productivity). This information will be valuable because as temperatures increase, productivity may increase and cause problems for lake ecosystems. Lake Erie to Lake Huron were also compared because pollution to lake Erie may affect productivity levels or the way temperature impacts productivity.
 
 ```{r}
 lakeerie2 <- lakeerie %>%
@@ -72,26 +76,7 @@ lakehuron2 <- lakehuron %>%
     chlorophyll_a = `Extracted_CHLa_ugL-1`)
 ```
 
-## Testing
-
-```{r}
-ggplot(lakeerie2, aes(x = surface_temp, y = chlorophyll_a)) +
-  geom_point(alpha = 0.4) +
-  geom_smooth(method = "lm", color = "blue") +
-  labs(title = "Temperature vs Chlorophyll a in Lake Eerie",
-       x = "Surface Temperature (°C)",
-       y = "Chlorophyll a (µg/L)")
-
-```
-
-```{r}
-ggplot(lakehuron2, aes(x = surface_temp, y = chlorophyll_a)) +
-  geom_point(alpha = 0.4) +
-  geom_smooth(method = "lm", color = "lightblue") +
-  labs(title = "Temperature vs Chlorophyll a in Lake Huron",
-       x = "Surface Temperature (°C)",
-       y = "Chlorophyll a (µg/L)")
-```
+# Results
 
 ```{r}
 library(tidyverse)
@@ -110,7 +95,7 @@ lakehuron_clean <- lakehuron2 %>%
 
 ```
 
-### Lake Eerie Tests
+### Lake Erie Tests
 
 #### Chi Squared Test
 
@@ -136,6 +121,21 @@ chisq.test(table_data)
 cor.test(lakeerie_clean$surface_temp, lakeerie_clean$chlorophyll_a, method = "pearson")
 ```
 
+```{r}
+ggplot(lakeerie_clean, aes(x = surface_temp, y = chlorophyll_a)) +
+  geom_point(color = "blue", alpha = 0.6) +  
+  geom_smooth(method = "lm", se = TRUE, color = "red") +  
+  labs(
+    title = "Relationship between Surface Temperature and Chlorophyll-a in Lake Erie",
+    x = "Surface Temperature (°C)",
+    y = "Chlorophyll-a (µg/L)"
+  ) +
+  theme_minimal()
+
+```
+
+**Figure 5:** Linear graph showing the relationship between temperature and chlorophyll A levels in Lake Erie.
+
 #### T-Test
 
 ```{r}
@@ -145,13 +145,33 @@ chl_low  <- lakeerie_binned %>% filter(temp_cat == "Low") %>% pull(chlorophyll_a
 t.test(chl_high, chl_low, var.equal = FALSE)
 ```
 
-#### Wilcox Test
-
 ```{r}
-wilcox.test(chl_high, chl_low)
+chl_comparison <- lakeerie_binned %>%
+  filter(temp_cat %in% c("Low", "High"))
+
+ggplot(chl_comparison, aes(x = temp_cat, y = chlorophyll_a, fill = temp_cat)) +
+  geom_boxplot(outlier.shape = NA, alpha = 0.7, width = 0.5) +
+  geom_jitter(width = 0.15, alpha = 0.5, color = "black") +
+  scale_fill_manual(values = c("Low" = "#56B1F7", "High" = "#E76F51")) +
+  labs(
+    title = "Chlorophyll-a Levels by Surface Temperature Category in Lake Erie",
+    subtitle = "Welch Two-Sample t-test: High vs Low Temperature",
+    x = "Surface Temperature Category",
+    y = "Chlorophyll-a (µg/L)",
+    fill = "Temperature Category"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
 ```
 
-### Lake Huron Testing
+**Figure 6:** Graph showing the relationship between high and low temperature and chlorophyll A levels in Lake Erie.
+
+### Lake Huron Tests
 
 #### Chi Squared Test
 
@@ -177,6 +197,20 @@ chisq.test(table_data)
 cor.test(lakehuron_binned$surface_temp, lakehuron_binned$chlorophyll_a, method = "pearson")
 ```
 
+```{r}
+ggplot(lakehuron_clean, aes(x = surface_temp, y = chlorophyll_a)) +
+  geom_point(color = "blue", alpha = 0.6) +  
+  geom_smooth(method = "lm", se = TRUE, color = "red") +  
+  labs(
+    title = "Relationship between Surface Temperature and Chlorophyll-a in Lake Huron",
+    x = "Surface Temperature (°C)",
+    y = "Chlorophyll-a (µg/L)"
+  ) +
+  theme_minimal()
+```
+
+**Figure 7:** Linear graph showing the relationship between temperature and chlorophyll A levels in Lake Huron.
+
 #### T-Test
 
 ```{r}
@@ -186,32 +220,120 @@ chl_low2  <- lakehuron_binned %>% filter(temp_cat == "Low") %>% pull(chlorophyll
 t.test(chl_high2, chl_low2, var.equal = FALSE)
 ```
 
-#### Wilcox Test
-
 ```{r}
-wilcox.test(chl_high2, chl_low2)
+chl_comparison <- lakehuron_binned %>%
+  filter(temp_cat %in% c("Low", "High"))
+
+ggplot(chl_comparison, aes(x = temp_cat, y = chlorophyll_a, fill = temp_cat)) +
+  geom_boxplot(outlier.shape = NA, alpha = 0.7, width = 0.5) +
+  geom_jitter(width = 0.15, alpha = 0.5, color = "black") +
+  scale_fill_manual(values = c("Low" = "#56B1F7", "High" = "#E76F51")) +
+  labs(
+    title = "Chlorophyll-a Levels by Surface Temperature Category in Lake Huron",
+    subtitle = "Welch Two-Sample t-test: High vs Low Temperature",
+    x = "Surface Temperature Category",
+    y = "Chlorophyll-a (µg/L)",
+    fill = "Temperature Category"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
 ```
 
-# Results
+**Figure 8:** Graph showing the relationship between high and low temperature and chlorophyll A levels in Lake Huron.
 
-The Chi squared test that was done on the Lake Eerie data (dataset 1), the p value came back as 1.509e-07. This means that there is a significant relationship between temperature and chlorophyll A levels in Lake Eerie. The Pearson correlation test that was performed on the data came back with a p value of 3.013e-10. This also shows a highly significant relationship between temperature and chlorophyll A levels. The T-test done also came back with a very low p value of 3.669e-16. This test also shows a high significance in the relationship of the variables. The final test performed on the data, the Wilcox test, had a p value of 1.092e-15. This very low p value shows that there is a high significance in the relationship between the variables.
+### Wilcox Tests
 
-The Chi squared test that was performed on the Lake Huron data (dataset 2) the p value came back as 0.03894. This means that the data is significant and there is a relation in this data of temperature to chlorophyll A levels. The Pearson correlation test that was done on the Lake Huron data had a p value of 0.1028. This also shows that there is not a significant linear relationship between temperature and chlorophyll A levels in Lake Huron. The T-test that was done on the data came back with a p value of 0.01676. This shows that there is a significant relationship between the two variables in Lake Huron in this test. The Wilcox test that was performed on the data came back with a p value of 0.0172. This p value means that there is a slightly significant relationship in this data with temperature and chlorophyll A levels.
+#### Chlorophyll A Levels at High Temperatures in both Lakes
+
+```{r}
+wilcox.test(chl_high, chl_high2)
+```
+
+```{r}
+chl_data <- data.frame(
+  group = factor(
+    c(rep("Lake Erie", length(chl_high)), rep("Lake Huron", length(chl_high2))),
+    levels = c("Lake Erie", "Lake Huron")
+  ),
+  chlorophyll_a = c(chl_high, chl_high2)
+)
+
+ggplot(chl_data, aes(x = group, y = chlorophyll_a, fill = group)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, outlier.shape = NA, alpha = 0.8) +
+  geom_jitter(width = 0.1, alpha = 0.4, color = "black") +
+  scale_fill_manual(values = c("Lake Erie" = "#2196F3", "Lake Huron" = "#FF7043")) +
+  labs(
+    title = "Comparison of Chlorophyll-a at High Temperatures Between Lake Erie and Lake Huron",
+    subtitle = "Wilcoxon Rank-Sum Test",
+    x = "Lake",
+    y = "Chlorophyll-a (µg/L)"
+  ) +
+  theme_minimal(base_size = 9) +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+```
+
+**Figure 9:** Graph comparing the chlorophyll A levels at high temperatures in both lakes.
+
+#### Chlorophyll A Levels at Low Temperatures in both Lakes
+
+```{r}
+wilcox.test(chl_low, chl_low2)
+```
+
+```{r}
+chl_data2 <- data.frame(
+  group = factor(
+    c(rep("Lake Erie", length(chl_low)), rep("Lake Huron", length(chl_low2))),
+    levels = c("Lake Erie", "Lake Huron")
+  ),
+  chlorophyll_a = c(chl_low, chl_low2)
+)
+
+ggplot(chl_data2, aes(x = group, y = chlorophyll_a, fill = group)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, outlier.shape = NA, alpha = 0.8) +
+  geom_jitter(width = 0.1, alpha = 0.4, color = "black") +
+  scale_fill_manual(values = c("Lake Erie" = "#2196F3", "Lake Huron" = "#FF7043")) +
+  labs(
+    title = "Comparison of Chlorophyll-a at Low Temperatures Between Lake Erie and Lake Huron",
+    subtitle = "Wilcoxon Rank-Sum Test",
+    x = "Lake",
+    y = "Chlorophyll-a (µg/L)"
+  ) +
+  theme_minimal(base_size = 9) +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+```
+
+**Figure 10:** Graph comparing the chlorophyll A levels at low temperatures in both lakes.
+
+The Chi squared test that was done on the Lake Erie data (dataset 1), the p value came back as 1.509e-07. This means that there is a significant relationship between temperature and chlorophyll A levels in Lake Erie. The Pearson correlation test that was performed on the data came back with a p value of 3.013e-10. This also shows a highly significant relationship between temperature and chlorophyll A levels, which is shown in Figure 5. The T-test done also came back with a very low p value of 3.669e-16. This test also shows a high significance in the relationship of the variables. In Figure 6, the strong relationship is shown in the graph. All of these highly statistically significant results mean that high temperature has a strong relationship with chlorophyll A levels. This indicates that there is a strong relation between temperature and primary productivity in Lake Erie.
+
+The Chi squared test that was performed on the Lake Huron data (dataset 2) the p value came back as 0.03894. This means that the data is significant and there is a relation in this data of temperature to chlorophyll A levels. The Pearson correlation test that was done on the Lake Huron data had a p value of 0.1028. This also shows that there is not a significant linear relationship between temperature and chlorophyll A levels in Lake Huron, which is shown in Figure 7. The T-test that was done on the data came back with a p value of 0.01676. This shows that there is a significant relationship between the two variables in Lake Huron in this test, which is shown in Figure 8. These statistically significant relationships show that there is a correlation between temperature and chlorophyll A levels. These statistical tests showed that there is a relationship between primary productivity and temperature, but it was not as strong of a relationship as it was in Lake Erie.
+
+The last tests that were done were Wilcox tests on the chlorophyll A levels when the temperature is high and low in each of the lakes. The first test was on the high temperature chlorophyll A levels being compared in the lakes, which came back with a p value of 0.01907. This shows that there is a significant relationship between the two lakes' chlorophyll A levels, as you can see in Figure 9. The next test was on the low temperature chlorophyll A levels being compared in the lakes, which came back with a p value of 0.421. This shows an insignificant relationship between the chlorophyll A levels in the lakes. Figure 10 shows that there is much more variation in the levels of chlorophyll A at low temperatures than in high temperatures.
 
 # Discussion
 
-The Lake Eerie dataset showed much stronger and consistent correlation between temperature and Chlorophyll A levels. This indicates there is a high significance in the relationship between variables and chlorophyll A levels are highly dependent on temperature. For the Lake Huron Dataset, the p-value for the chi-squared test came back as significant while the value for the Pearson Correlation test indicates there was not a significant relationship between temperature and chlorophyll A. Since a chi-test measures association between categorical variables, continuous data is sorted into categories. This suggests there is a non-random association between the categories (high temperature and high chlorophyll A concentration for example). The Pearson correlation tests the strength and direction of the linear relationship between two continuous variables. This indicates that the relationship may not be linear, but could be curved, thresholded or influenced by other variables the Pearson Correlation test cannot detect.
+The Lake Erie dataset showed much stronger and consistent correlation between temperature and Chlorophyll A levels. This indicates there is a high significance in the relationship between variables and chlorophyll A levels are highly dependent on temperature. For the Lake Huron dataset, the p-value for the chi-squared test came back as significant while the value for the Pearson Correlation test indicates there was not a significant relationship between temperature and chlorophyll A. Since a chi-test measures association between categorical variables, continuous data is sorted into categories. This suggests there is a non-random association between the categories (high temperature and high chlorophyll A concentration for example). The Pearson correlation tests the strength and direction of the linear relationship between two continuous variables. This indicates that the relationship may not be linear, but could be curved, thresholded or influenced by other variables the Pearson Correlation test cannot detect.
 
 These findings imply that temperature and chlorophyll A have a positive identifiable correlation. Since chlorophyll A is an indicator of high levels of algae productivity, this suggests that when temperatures increase, algal blooms also increase. Large algal blooms can be detrimental to lake ecosystem health. It is helpful to study this relationship because as temperatures increase with climate change, this might increase the level of harmful algal blooms in lake ecosystems. This could influence management decisions and the regulation of pollutants or nutrient input to the great lakes. 
 
+One possible reason for why Lake Erie had much stronger results for temperature and chlorophyll A levels is because it is the most polluted lake of the Great Lakes (@wood1968pollution). Because it is more polluted than other lakes, it is more susceptible to eutrophication. Eutrophication in lakes occurs when there is an offloading of nutrients into the lake which feeds the algae there, causing large, harmful blooms. This usually comes from agricultural runoff from the fertilizer that is used. Lake Erie is particularly vulnerable to this happening quicker because it has much less volume than other Great Lakes (@wood1968pollution). Lake Erie also has much more agricultural runoff coming into it (@watson2016re). This makes it much more vulnerable to large algal growths that can be harmful to the lake ecosystem's health.
+
+Another reason why Lake Erie had much stronger results is because there were several more points of data that were collected and used in the analysis. As you can see in Figures 5 and 6, there are several points of data and in Figures 7 and 8, there are far less than the previous ones. This could have created more variation in the results since there are less points of data. This could have caused it to be less precise with more room for error. This room for error is displayed the most in Figures 9 and 10, because the bubble around the box plot for Lake Huron that is representing the standard of error is much wider than Lake Erie's. The difference in the number of data points is also very clear in these two figures because side by side there is a very clear disparity in the number of data points in Lake Erie and Lake Huron.
+
 This analysis is very limited because the data used in these statistical tests were collected only during one year. This means that these statistical tests did not account for variation of different factors between years such as climate, nutrient input, and other factors. There was also a fairly small sample size which could have skewed the results. The next steps proposed are to conduct a much longer term study that spans multiple years to account for the variation between years and measure how increasing temperatures are changing chlorophyll A concentration. Using different study sites on different lakes or different parts of the lakes could also give a more comprehensive picture of this relationship.
-
-\
-\
-
-\
-\
-
-\
-\
-\
